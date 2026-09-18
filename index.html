@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Awais Mushtaq — Portfolio</title>
+<title>Zeeshan A. Khan — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B1220;
-    --surface:#111B2E;
-    --surface-2:#16223B;
-    --line:#243252;
-    --text:#E8ECF3;
+    --bg:#0A0F1A;
+    --surface:#101828;
+    --surface-2:#152038;
+    --line:#232F4A;
+    --text:#E9EDF5;
     --muted:#8B96AB;
-    --amber:#FFB020;
-    --amber-dim:#8a5f19;
+    --lime:#B6FF3B;
+    --lime-dim:#5c6e26;
     --cyan:#4CC9F0;
     --up:#3DDC84;
     --down:#FF5C5C;
@@ -36,60 +36,35 @@
   }
   a{color:inherit;}
   img{max-width:100%;display:block;}
+  ::selection{background:var(--lime);color:#0A0F1A;}
 
-  ::selection{background:var(--amber);color:#0B1220;}
-
-  .wrap{
-    max-width:900px;
-    margin:0 auto;
-    padding:0 24px;
-  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
 
   /* ---------- NAV ---------- */
   header.nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(11,18,32,0.85);
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,15,26,0.85);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    max-width:900px;
-    margin:0 auto;
-    padding:14px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
+    max-width:900px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
   }
-  .nav-id{
-    font-family:var(--mono);
-    font-size:14px;
-    color:var(--amber);
-    white-space:nowrap;
-  }
+  .nav-id{font-family:var(--mono);font-size:14px;color:var(--lime);white-space:nowrap;}
   .nav-links{
-    display:flex;
-    gap:18px;
-    overflow-x:auto;
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--muted);
+    display:flex;gap:18px;overflow-x:auto;
+    font-family:var(--mono);font-size:13px;color:var(--muted);
     scrollbar-width:none;
   }
   .nav-links::-webkit-scrollbar{display:none;}
   .nav-links a{
-    text-decoration:none;
-    white-space:nowrap;
-    padding:4px 2px;
+    text-decoration:none;white-space:nowrap;padding:4px 2px;
     border-bottom:1px solid transparent;
     transition:color .15s, border-color .15s;
   }
   .nav-links a:hover, .nav-links a:focus-visible{
-    color:var(--amber);
-    border-color:var(--amber);
-    outline:none;
+    color:var(--lime);border-color:var(--lime);outline:none;
   }
 
   /* ---------- HERO ---------- */
@@ -99,286 +74,134 @@
     position:relative;
     overflow:hidden;
   }
-  .hero-chart{
+  .hero-grid{
     position:absolute;
-    right:-40px;
-    top:20px;
-    width:340px;
-    max-width:45vw;
-    opacity:0.35;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:36px 36px;
+    opacity:0.15;
+    mask-image:linear-gradient(to bottom, black, transparent 80%);
     pointer-events:none;
   }
-  .prompt-line{
-    font-family:var(--mono);
-    color:var(--cyan);
-    font-size:14px;
-    margin:0 0 18px;
-  }
-  .prompt-line .path{color:var(--amber);}
+  .prompt-line{font-family:var(--mono);color:var(--cyan);font-size:14px;margin:0 0 18px;position:relative;}
+  .prompt-line .path{color:var(--lime);}
   .terminal-out{
-    font-family:var(--mono);
-    font-size:14px;
-    color:var(--muted);
-    min-height:22px;
-    margin-bottom:6px;
+    font-family:var(--mono);font-size:14px;color:var(--muted);
+    min-height:22px;margin-bottom:6px;position:relative;
   }
   h1.name{
-    font-family:var(--mono);
-    font-size:clamp(32px, 6vw, 52px);
-    font-weight:700;
-    margin:6px 0 14px;
-    letter-spacing:-0.5px;
+    font-family:var(--mono);font-size:clamp(30px, 6vw, 50px);
+    font-weight:700;margin:6px 0 14px;letter-spacing:-0.5px;position:relative;
   }
   .cursor{
-    display:inline-block;
-    width:10px;
-    height:1em;
-    background:var(--amber);
-    margin-left:4px;
-    vertical-align:middle;
-    animation:blink 1s step-end infinite;
+    display:inline-block;width:10px;height:1em;background:var(--lime);
+    margin-left:4px;vertical-align:middle;animation:blink 1s step-end infinite;
   }
   @keyframes blink{50%{opacity:0;}}
-
-  .tagline{
-    font-size:18px;
-    color:var(--text);
-    max-width:56ch;
-    margin:0 0 22px;
-  }
-  .tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
+  .tagline{font-size:18px;color:var(--text);max-width:56ch;margin:0 0 22px;position:relative;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;position:relative;}
   .tag{
-    font-family:var(--mono);
-    font-size:12.5px;
-    color:var(--amber);
-    border:1px solid var(--amber-dim);
-    background:rgba(255,176,32,0.06);
-    padding:5px 10px;
-    border-radius:3px;
+    font-family:var(--mono);font-size:12.5px;color:var(--lime);
+    border:1px solid var(--lime-dim);background:rgba(182,255,59,0.06);
+    padding:5px 10px;border-radius:3px;
   }
 
   /* ---------- SECTIONS ---------- */
-  section{
-    padding:56px 0;
-    border-bottom:1px solid var(--line);
-  }
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:28px;
-    font-family:var(--mono);
-  }
-  .section-head .num{color:var(--muted); font-size:14px;}
-  .section-head h2{
-    font-size:22px;
-    margin:0;
-    font-weight:600;
-    color:var(--text);
-  }
-  .section-head::after{
-    content:'';
-    flex:1;
-    height:1px;
-    background:var(--line);
-  }
+  .section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:28px;font-family:var(--mono);}
+  .section-head .num{color:var(--muted);font-size:14px;}
+  .section-head h2{font-size:22px;margin:0;font-weight:600;color:var(--text);}
+  .section-head::after{content:'';flex:1;height:1px;background:var(--line);}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    gap:36px;
-    align-items:start;
-  }
-  .about-grid p{color:var(--muted); margin:0 0 14px;}
-  .about-grid p strong{color:var(--text); font-weight:500;}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:start;}
+  .about-grid p{color:var(--muted);margin:0 0 14px;}
+  .about-grid p strong{color:var(--text);font-weight:500;}
   .sysinfo{
-    font-family:var(--mono);
-    font-size:13px;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:18px 20px;
+    font-family:var(--mono);font-size:13px;background:var(--surface);
+    border:1px solid var(--line);border-radius:6px;padding:18px 20px;
   }
-  .sysinfo .row{
-    display:flex;
-    justify-content:space-between;
-    padding:6px 0;
-    border-bottom:1px dashed var(--line);
-  }
+  .sysinfo .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line);}
   .sysinfo .row:last-child{border-bottom:none;}
   .sysinfo .k{color:var(--muted);}
-  .sysinfo .v{color:var(--cyan); text-align:right;}
-
-  @media (max-width:720px){
-    .about-grid{grid-template-columns:1fr;}
-  }
+  .sysinfo .v{color:var(--cyan);text-align:right;}
+  @media (max-width:720px){.about-grid{grid-template-columns:1fr;}}
 
   /* ---------- SKILLS ---------- */
-  .skill-cat{
-    margin-bottom:28px;
-  }
-  .skill-cat h3{
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--amber);
-    font-weight:500;
-    margin:0 0 12px;
-  }
-  .skill-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
-    gap:12px;
-  }
+  .skill-cat{margin-bottom:28px;}
+  .skill-cat h3{font-family:var(--mono);font-size:13px;color:var(--lime);font-weight:500;margin:0 0 12px;}
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(200px,1fr));gap:12px;}
   .skill-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:14px 16px;
-    transition:border-color .15s, transform .15s;
+    background:var(--surface);border:1px solid var(--line);border-radius:6px;
+    padding:14px 16px;transition:border-color .15s, transform .15s;
   }
-  .skill-card:hover{
-    border-color:var(--amber-dim);
-    transform:translateY(-2px);
-  }
+  .skill-card:hover{border-color:var(--lime-dim);transform:translateY(-2px);}
   .skill-card .t{
-    font-family:var(--mono);
-    font-size:14px;
-    color:var(--text);
-    margin:0 0 6px;
-    display:flex;
-    align-items:center;
-    gap:8px;
+    font-family:var(--mono);font-size:14px;color:var(--text);margin:0 0 6px;
+    display:flex;align-items:center;gap:8px;
   }
-  .skill-card .t .dot{
-    width:6px;height:6px;border-radius:50%;
-    background:var(--up);
-    flex:none;
-  }
-  .skill-card p{
-    margin:0;
-    font-size:13px;
-    color:var(--muted);
-  }
+  .skill-card .t .dot{width:6px;height:6px;border-radius:50%;background:var(--up);flex:none;}
+  .skill-card p{margin:0;font-size:13px;color:var(--muted);}
 
   /* ---------- MARKETS ---------- */
   .ticker{
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--surface);
-    border-radius:6px;
-    margin-bottom:28px;
-    white-space:nowrap;
+    overflow:hidden;border:1px solid var(--line);background:var(--surface);
+    border-radius:6px;margin-bottom:28px;white-space:nowrap;
   }
   .ticker-track{
-    display:inline-flex;
-    gap:36px;
-    padding:12px 0;
-    animation:scroll-left 22s linear infinite;
-    font-family:var(--mono);
-    font-size:13px;
+    display:inline-flex;gap:36px;padding:12px 0;
+    animation:scroll-left 22s linear infinite;font-family:var(--mono);font-size:13px;
   }
-  @media (prefers-reduced-motion: reduce){
-    .ticker-track{animation:none;}
-  }
+  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none;}}
   .ticker-item .up{color:var(--up);}
   .ticker-item .down{color:var(--down);}
-  @keyframes scroll-left{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-  .markets-copy p{color:var(--muted); max-width:64ch;}
-  .markets-copy strong{color:var(--text); font-weight:500;}
-
-  /* ---------- MARKETING ---------- */
-  .marketing-list{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:grid;
-    gap:10px;
-  }
-  .marketing-list li{
-    display:flex;
-    gap:12px;
-    color:var(--muted);
-    font-size:14.5px;
-    align-items:flex-start;
-  }
-  .marketing-list li::before{
-    content:'›';
-    color:var(--amber);
-    font-family:var(--mono);
-    font-weight:700;
-    line-height:1.5;
-  }
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .markets-copy p{color:var(--muted);max-width:64ch;}
+  .markets-copy strong{color:var(--text);font-weight:500;}
 
   /* ---------- CONTACT ---------- */
   .contact-box{
-    font-family:var(--mono);
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:22px 24px;
+    font-family:var(--mono);background:var(--surface);border:1px solid var(--line);
+    border-radius:6px;padding:22px 24px;
   }
-  .contact-box .line{margin-bottom:10px; font-size:14px;}
+  .contact-box .line{margin-bottom:10px;font-size:14px;}
   .contact-box .line .k{color:var(--muted);}
-  .contact-box .line a{color:var(--cyan); text-decoration:none;}
+  .contact-box .line a{color:var(--cyan);text-decoration:none;}
   .contact-box .line a:hover{text-decoration:underline;}
-  .contact-box .note{
-    margin-top:14px;
-    font-size:12.5px;
-    color:var(--amber-dim);
-  }
+  .contact-box .note{margin-top:14px;font-size:12.5px;color:var(--lime-dim);}
 
-  footer{
-    padding:26px 0 40px;
-    text-align:center;
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--muted);
-  }
-
-  :focus-visible{
-    outline:2px solid var(--amber);
-    outline-offset:2px;
-  }
+  footer{padding:26px 0 40px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);}
+  :focus-visible{outline:2px solid var(--lime);outline-offset:2px;}
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="nav-id">awais@portfolio</div>
+    <div class="nav-id">zeeshan@portfolio</div>
     <nav class="nav-links">
       <a href="#about">~/about</a>
       <a href="#skills">~/security</a>
       <a href="#markets">~/markets</a>
-      <a href="#marketing">~/marketing</a>
       <a href="#contact">~/contact</a>
     </nav>
   </div>
 </header>
 
 <section class="hero wrap">
-  <svg class="hero-chart" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g id="candles"></g>
-  </svg>
+  <div class="hero-grid" aria-hidden="true"></div>
   <p class="prompt-line"><span class="path">~/</span>whoami</p>
   <div class="terminal-out" id="typed"></div>
-  <h1 class="name">Muhammad Awais Mushtaq<span class="cursor"></span></h1>
-  <p class="tagline">ICS student in Wah Cantt, building three skill tracks at once: financial markets, cybersecurity fundamentals, and digital marketing.</p>
+  <h1 class="name">Zeeshan A. Khan<span class="cursor"></span></h1>
+  <p class="tagline">DAE IT student in Wah Cantt, working across two tracks at once: financial markets and cybersecurity fundamentals.</p>
   <div class="tags">
     <span class="tag">Forex Trader</span>
-    <span class="tag">Nasdaq Trader</span>
+    <span class="tag">NASDAQ Trader</span>
     <span class="tag">Cybersecurity — Fundamentals</span>
-    <span class="tag">Digital Marketer</span>
-    <span class="tag">ICS Student</span>
+    <span class="tag">DAE IT Student</span>
   </div>
 </section>
 
@@ -386,16 +209,15 @@
   <div class="section-head"><span class="num">01</span><h2>About</h2></div>
   <div class="about-grid">
     <div>
-      <p>I'm currently completing my <strong>ICS (Intermediate in Computer Science)</strong>, and outside of coursework I split my time across three things I actually enjoy: reading price charts, breaking (and understanding) how systems get compromised, and helping brands get found online.</p>
-      <p>I actively trade the <strong>Forex</strong> and <strong>Nasdaq</strong> markets — mostly technical setups, risk management, and following how macro news moves price. Alongside that, I'm building a cybersecurity foundation through the <strong>Bano Qabil</strong> program, working through the fundamentals with hands-on tools rather than just theory.</p>
-      <p>I also run <strong>digital marketing</strong> work on the side — content, campaigns, and growth basics for small brands and personal projects.</p>
+      <p>I'm currently pursuing a <strong>DAE in Information Technology</strong>, and alongside my studies I'm building two skill tracks in parallel: trading the financial markets and learning practical cybersecurity.</p>
+      <p>I actively trade <strong>Forex</strong> and the <strong>NASDAQ</strong> index — working with technical setups, risk management, and keeping track of the news that moves price. At the same time, I'm building my cybersecurity foundation through the <strong>Bano Qabil</strong> program, going through the fundamentals hands-on rather than just in theory.</p>
     </div>
     <div class="sysinfo">
-      <div class="row"><span class="k">name</span><span class="v">Muhammad Awais Mushtaq</span></div>
-      <div class="row"><span class="k">age</span><span class="v">20</span></div>
+      <div class="row"><span class="k">name</span><span class="v">Zeeshan A. Khan</span></div>
+      <div class="row"><span class="k">age</span><span class="v">18</span></div>
       <div class="row"><span class="k">location</span><span class="v">Wah Cantt, Pakistan</span></div>
-      <div class="row"><span class="k">education</span><span class="v">ICS Student</span></div>
-      <div class="row"><span class="k">focus</span><span class="v">Trading / Security / Marketing</span></div>
+      <div class="row"><span class="k">education</span><span class="v">DAE IT Student</span></div>
+      <div class="row"><span class="k">focus</span><span class="v">Trading / Security</span></div>
       <div class="row"><span class="k">program</span><span class="v">Bano Qabil — Cybersecurity</span></div>
       <div class="row"><span class="k">status</span><span class="v" style="color:var(--up)">learning & building</span></div>
     </div>
@@ -459,21 +281,12 @@
     <div class="ticker-track" id="ticker-track"></div>
   </div>
   <div class="markets-copy">
-    <p>I trade <strong>Forex</strong> pairs and the <strong>Nasdaq</strong> index, working mainly with technical analysis — trend structure, support/resistance, and risk-per-trade — while keeping an eye on the macro calendar for news that moves the market.</p>
+    <p>I trade <strong>Forex</strong> pairs and the <strong>NASDAQ</strong> index, working mainly with technical analysis — trend structure, support/resistance, and risk-per-trade — while keeping an eye on the macro calendar for news that moves the market.</p>
   </div>
 </section>
 
-<section id="marketing" class="wrap">
-  <div class="section-head"><span class="num">04</span><h2>Digital Marketing</h2></div>
-  <ul class="marketing-list">
-    <li>Running content and campaigns for small brands and personal projects.</li>
-    <li>Working on organic growth, page setup, and basic audience targeting.</li>
-    <li>Applying the same analytical habits from trading and security work — testing, reading data, adjusting — to marketing decisions.</li>
-  </ul>
-</section>
-
 <section id="contact" class="wrap">
-  <div class="section-head"><span class="num">05</span><h2>Contact</h2></div>
+  <div class="section-head"><span class="num">04</span><h2>Contact</h2></div>
   <div class="contact-box">
     <div class="line"><span class="k">email</span> &nbsp;→&nbsp; <a href="mailto:youremail@example.com">youremail@example.com</a></div>
     <div class="line"><span class="k">whatsapp</span> &nbsp;→&nbsp; <a href="#">+92 3XX XXXXXXX</a></div>
@@ -483,11 +296,10 @@
   </div>
 </section>
 
-<footer>© 2026 Muhammad Awais Mushtaq — built with HTML, CSS & JS</footer>
+<footer>© 2026 Zeeshan A. Khan — built with HTML, CSS & JS</footer>
 
 <script>
-  // Typing effect for the hero terminal line
-  const line = "Trader. Security learner. Marketer.";
+  const line = "Trader. Security learner.";
   const el = document.getElementById('typed');
   let i = 0;
   function type(){
@@ -503,34 +315,6 @@
     el.textContent = line;
   }
 
-  // Simple animated candlestick SVG in hero
-  (function(){
-    const svgNS = "http://www.w3.org/2000/svg";
-    const g = document.getElementById('candles');
-    const candles = [40,70,55,90,60,100,80,110,95,130,105,140];
-    let x = 0;
-    candles.forEach((h, idx) => {
-      const up = idx % 3 !== 0;
-      const rect = document.createElementNS(svgNS, 'rect');
-      rect.setAttribute('x', x);
-      rect.setAttribute('width', 14);
-      rect.setAttribute('y', 160);
-      rect.setAttribute('height', 0);
-      rect.setAttribute('fill', up ? '#3DDC84' : '#FF5C5C');
-      rect.setAttribute('opacity', '0.85');
-      g.appendChild(rect);
-      const targetH = h;
-      const targetY = 160 - h - (idx*2);
-      setTimeout(() => {
-        rect.style.transition = 'y .6s ease, height .6s ease';
-        rect.setAttribute('y', targetY > 0 ? targetY : 0);
-        rect.setAttribute('height', targetH);
-      }, 120 + idx * 70);
-      x += 22;
-    });
-  })();
-
-  // Ticker tape content (illustrative, not live data)
   (function(){
     const pairs = [
       {n:'EUR/USD', v:'1.0842', d:'up'},
